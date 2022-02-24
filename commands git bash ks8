@@ -1,0 +1,69 @@
+To install k8s
+curl -sfL https://get.k3s.io | sh -
+
+
+ 2  kubectl get nodes
+    3  nano deployment.yaml
+    4  kubectl apply -f deployment.yaml
+    5  kubectl get deployment
+    6  kubectl get rs
+    7  kubectl get pod
+
+11  kubectl get deploy
+   12  kubectl get rs
+   13  kubectl get pod
+   14  kubectl get deploy
+   15  kubectl describe deploy
+   16  kubectl describe rs
+   17  kubectl get pod
+   18  kubectl describe pod myapp-deployment-84fcb7989f-zwhk7
+
+32  kubectl apply -f service.yaml
+   33  kubectl get svc
+   34  cler
+   35  clear
+   36  kubectl get pod
+   37  kubectl get pod -o wide
+   38  kubectl get svc
+   40  kubectl describe svc myappsrv
+
+43  kubectl get deploy
+   44  kubectl set image deployment/myapp-deployment  myapp-container=piuma/phpsysinfo
+   45  kubectl rollout status deployment/myapp-deployment
+   46  kubectl get rs
+   47  kubectl describe deploy myapp-deployment
+   48  kubectl rollout history deployment/myapp-deployment
+   
+  51  kubectl set image deployment/myapp-deployment  myapp-container=gopal1409/chatapp --record
+   52  kubectl rollout history deployment/myapp-deployment
+   53  kubectl get pod
+   57  nano service.yaml
+   58  kubectl apply -f service.yaml
+   59  kubectl get svc
+ 
+ 31  kubectl get deploy
+   32  kubectl scale deploy myapp-deployment --replicas=10
+   33  kubectl get pod
+   34  kubectl get rs
+   35  kubectl get pod
+   36  kubectl get svc
+   37  kubectl describe svc myappsrv
+   
+   62  kubectl get deploy
+   63  kubectl describe deploy myapp-deployment
+   64  kubectl rollout history deploy myapp-deployment
+   65  kubectl rollout history deploy myapp-deployment --revision=2
+   66  kubectl rollout history deploy myapp-deployment --revision=1
+   67  kubectl rollout undo deploy myapp-deployment
+   68  kubectl describe deploy myapp-deployment
+   69  kubectl rollout undo deploy myapp-deployment
+   70  kubectl describe deploy myapp-deployment
+   71  kubectl rollout history deploy myapp-deployment
+   72  kubectl rollout undo deploy myapp-deployment --to-revision=1
+   73  kubectl describe deploy myapp-deployment
+   74  kubectl get rs
+   
+   40  kubectl autoscale deploy myapp-deployment --min=10 --max=15 --cpu-percent=80
+   41  kubectl get hpa  # horizontalpodautoscaler
+   48  kubectl delete pod myapp-deployment-84fcb7989f-58wq4
+   49  kubectl get pod
