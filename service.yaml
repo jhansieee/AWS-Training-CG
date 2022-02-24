@@ -1,0 +1,24 @@
+apiVersion: v1 
+kind: Service
+metadata:
+  name: myappsrv
+
+spec:
+  type: NodePort #you can have LoadBalancer or you can have cluster ip
+  selector:
+    app: myapp 
+  ports:
+    - name: http
+      port: 80
+      targetPort: 80 
+      nodePort: 31233
+      
+      
+      #commands on git bash
+     
+     43  kubectl get deploy
+   44  kubectl set image deployment/myapp-deployment  myapp-container=piuma/phpsysinfo
+   45  kubectl rollout status deployment/myapp-deployment
+   46  kubectl get rs
+   47  kubectl describe deploy myapp-deployment
+   48  kubectl rollout history deployment/myapp-deployment
